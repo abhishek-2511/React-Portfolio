@@ -1,0 +1,91 @@
+import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+import { ProjectCard } from "./ProjectCard";
+import projImg1 from "../assets/img/project1.png";
+import projImg2 from "../assets/img/project2.png";
+import projImg3 from "../assets/img/project3.png";
+import projImg4 from "../assets/img/project4.png";
+import colorSharp2 from "../assets/img/color-sharp2.png";
+import 'animate.css';
+import TrackVisibility from 'react-on-screen';
+
+export const Projects = () => {
+
+  const projects = [
+    {
+      title: "Link-up",
+      description: "A Social Media App. Tech Stack: Node.js, MongoDB, CSS, Javascript,ejs. Key Features: Google Authentication, create posts, edit and delete posts.",
+      imgUrl: projImg1,
+      githubRepo: "https://github.com/abhishek-2511/Link-up" 
+    },
+    {
+      title: "Taskify",
+      description: "A ToDO App. Tech Stack: Javascript, ejs, express.js, MongoDB. Key Feature: create, delete, organize tasks, due dates, status update, data backup",
+      imgUrl: projImg2,
+    },
+    {
+      title: "Ping Pong Game",
+      description: "Tech Stack: Html, Css, JavaScript",
+      imgUrl: projImg3,
+    },
+    {
+      title: "Calculator",
+      description: "Tech Stack: Html, Css, JavaScript",
+      imgUrl: projImg4,
+    },
+    
+  ];
+
+  return (
+    <section className="project" id="project">
+      <Container>
+        <Row>
+          <Col size={12}>
+            <TrackVisibility>
+              {({ isVisible }) =>
+              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
+                <h2>Projects</h2>
+                <p>Below is a compilation of projects I've been involved in, showcasing my diverse skills, experiences, and contributions. Each project represents a unique opportunity for learning, growth, and problem-solving.</p>
+                <Tab.Container id="projects-tabs" defaultActiveKey="first">
+                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
+                    <Nav.Item>
+                      <Nav.Link eventKey="first">Tab 1</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="second">Tab 2</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="third">Tab 3</Nav.Link>
+                    </Nav.Item>
+                  </Nav>
+                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
+                    <Tab.Pane eventKey="first">
+                      <Row>
+                        {
+                          projects.map((project, index) => {
+                            return (
+                              <ProjectCard
+                                key={index}
+                                {...project}
+                                />
+                            )
+                          })
+                        }
+                      </Row>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="section">
+                      <p>"Below is a compilation of projects I've been involved in, showcasing my diverse skills, experiences, and contributions. Each project represents a unique opportunity for learning, growth, and problem-solving.</p>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="third">
+                      
+                    </Tab.Pane>
+                  </Tab.Content>
+                </Tab.Container>
+              </div>}
+            </TrackVisibility>
+          </Col>
+        </Row>
+      </Container>
+      <img className="background-image-right" src={colorSharp2}></img>
+    </section>
+  )
+}
