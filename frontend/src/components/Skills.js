@@ -92,6 +92,14 @@ export const Skills = () => {
                                 <img src={meter2} alt="Image" />
                                 <h5>React</h5>
                             </div>
+                            <div className="item">
+                                <img src={meter3} alt="Image" />
+                                <h5>Firebase</h5>
+                            </div>
+                            <div className="item">
+                                <img src={meter1} alt="Image" />
+                                <h5>React Hooks</h5>
+                            </div>
                         </Carousel>
                     </div>
                 </div>

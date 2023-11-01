@@ -28,7 +28,7 @@ export const Contact = () => {
     setButtonText("Sending...");
     
     try{
-      let response = await fetch("http://localhost:4000/contact", {
+      let response = await fetch("https://portfoliobackend-zwu8.onrender.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="contact" id="connect">
+    <section className="contact" id="contact">
       <Container>
         <Row className="align-items-center">
           <Col size={12} md={6}>
